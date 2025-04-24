@@ -28,6 +28,23 @@ int main() {
       break;
     }
     num++;
+
+    // Another Answer 
+    // bool check = false;
+    // for (int i = 0; i < N; i++) {
+    //   if (A.at(i) % 2 != 0) {
+    //     check = true;
+    //   }
+    // }
+
+    // if (check) {
+    //   break;
+    // }
+
+    // for (int i = 0; i < N; i++) {
+    //   A.at(i) /= 2;
+    // }
+    // num++;
   }
 
   cout << num << endl;
