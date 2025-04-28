@@ -27,6 +27,15 @@ int main() {
 
   // 連想配列の要素数（すなわち餅の種類）を取得
   cout << kinds.size() << endl;
-  
+
   return 0;
 }
+
+  // Another answer
+  // set（重複のないkeyだけのmap）を使う
+  // set<int> se;
+  // for (int i = 0; i < N; i++) {
+  //   se.insert(mochi.at(i));
+  // }
+
+  // cout << se.size() << endl;
