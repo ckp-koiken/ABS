@@ -24,7 +24,7 @@ int main() {
   // 端から順に見ていく
   // 4つのワードで切ることができるのかを判定(can)
   bool can = true;
-  for (int i = 0; i < S.size();) {  // Sの大きさ分だけループ
+  for (int i = 0; i < S.size();) {  // Sの大きさ分だけループ(iを増やす処理を書かない）
     bool can2 = false;  // ワードに該当するかを判定(can2)
     for (int j = 0; j < 4; j++) {  // 各ワードをそれぞれチェック
       string d = divide[j];
