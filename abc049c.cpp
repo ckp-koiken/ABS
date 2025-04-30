@@ -1,15 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TODO: fix vector
-// vector<string> divide(4) = {"dream", "dreamer", "erase", "eraser"};
-
-// Sを構成するワード
-string divide[4] = {"dream", "dreamer", "erase", "eraser"};
-
 int main() {
   string S;
   cin >> S;
+
+  // MEMO: vectorを宣言時に初期化して直で値を代入するときは要素数を()で指定する必要がない
+  vector<string> divide = {"dream", "dreamer", "erase", "eraser"};
 
   // 全ての文字列を左右反転する（後ろから解く）
   // dreamとdreamerなど順番通りに文字列を見ると被りがある
@@ -18,7 +15,7 @@ int main() {
 
   reverse(S.begin(), S.end());
   for (int i = 0; i < 4; i++) {
-    reverse(divide[i].begin(), divide[i].end());
+    reverse(divide.at(i).begin(), divide.at(i).end());
   }
 
   // 端から順に見ていく
@@ -27,7 +24,7 @@ int main() {
   for (int i = 0; i < S.size();) {  // Sの大きさ分だけループ(iを増やす処理を書かない）
     bool can2 = false;  // ワードに該当するかを判定(can2)
     for (int j = 0; j < 4; j++) {  // 各ワードをそれぞれチェック
-      string d = divide[j];
+      string d = divide.at(j);
       if (S.substr(i, d.size()) == d) {  // iの位置からワードの文字数分チェック
         can2 = true;  // ワードに該当するのならばcan2をtrueに
         i += d.size();  // iをワードの文字数分進める
