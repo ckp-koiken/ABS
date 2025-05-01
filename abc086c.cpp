@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TODO: interpret
+// https://blog.hamayanhamayan.com/entry/2018/01/21/225430
+// Thanks hamayanhamayan (@hamayanhamayan)
+
 int N;
 vector<int> T(101010), X(101010), Y(101010);
 
@@ -23,11 +25,15 @@ string solve() {
       return no;
     }
 
-    // TODO: dt-dが偶数であるなら移動できる
+    // dt-dが偶数であるなら移動できる
+    // * 最短距離での移動し、それとは別に使える時間がdt-d
+    // * 右へ1つ移動->左へ1つ移動などで目標の座標に戻れる：時間の調整が可能
+    // * この時間の調整で目標の座標に最後に止まれるのはdt-dが偶数のときだけ
     if ((dt - d) % 2 == 1) {
       return no;
     }
 
+    // 移動後にpt, px, pyを更新する
     pt = T.at(i);
     px = X.at(i);
     py = Y.at(i);
