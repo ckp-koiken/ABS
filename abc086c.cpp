@@ -4,14 +4,8 @@ using namespace std;
 // https://blog.hamayanhamayan.com/entry/2018/01/21/225430
 // Thanks hamayanhamayan (@hamayanhamayan)
 
-int N;
-vector<int> T(101010), X(101010), Y(101010);
-
-#define yes "Yes"
-#define no "No"
-
 // (px, py)から(X.at(i), Y.at(i))へ時間T.at(i)で遷移可能かを判定する
-string solve() {
+string solve(int N, vector<int> T, vector<int> X, vector<int> Y) {
   int pt = 0, px = 0, py = 0;
   for (int i = 0; i < N; i++) {
     // 2つの座標間を距離dで表す
@@ -22,7 +16,7 @@ string solve() {
     // 使える時間の方が距離よりも短ければ実現不可能
     // 最短距離で移動しても間に合わない
     if (dt < d) {
-      return no;
+      return "No";
     }
 
     // dt-dが偶数であるなら移動できる
@@ -30,7 +24,7 @@ string solve() {
     // * 右へ1つ移動->左へ1つ移動などで目標の座標に戻れる：時間の調整が可能
     // * この時間の調整で目標の座標に最後に止まれるのはdt-dが偶数のときだけ
     if ((dt - d) % 2 == 1) {
-      return no;
+      return "No";
     }
 
     // 移動後にpt, px, pyを更新する
@@ -38,15 +32,17 @@ string solve() {
     px = X.at(i);
     py = Y.at(i);
   }
-  return yes;
+  return "Yes";
 }
 
 int main() {
+  int N;
   cin >> N;
+  vector<int> T(N), X(N), Y(N);
   for (int i = 0; i < N; i++) {
     cin >> T.at(i) >> X.at(i) >> Y.at(i);
   }
-  cout << solve() << endl;
+  cout << solve(N, T, X, Y) << endl;
 
   return 0;
 }
